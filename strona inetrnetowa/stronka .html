@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeBron James - Strona Fanowska</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #101827;
+    color: white;
+}
+
+header {
+    background: #172b4d;
+    text-align: center;
+    padding: 30px 15px;
+    border-bottom: 4px solid #f5a623;
+}
+
+header h1 {
+    font-size: 38px;
+    margin: 10px;
+    color: #f5a623;
+}
+
+header p {
+    font-size: 17px;
+}
+
+nav {
+    background: #20385d;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #f5a623;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+}
+
+.search {
+    text-align: center;
+    margin: 25px 0;
+}
+
+input {
+    padding: 13px;
+    width: 65%;
+    max-width: 450px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    padding: 13px 20px;
+    background: #f5a623;
+    color: #172b4d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+}
+
+button:hover {
+    background: #ffc45c;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.content {
+    background: #20385d;
+    padding: 25px;
+    border-radius: 12px;
+    min-height: 250px;
+    line-height: 1.7;
+}
+
+.content h2 {
+    color: #f5a623;
+}
+
+.content ul {
+    line-height: 2;
+}
+
+footer {
+    background: #172b4d;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #ccc;
+}
+
+#message {
+    text-align: center;
+    color: #ffc45c;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>LEBRON JAMES</h1>
+    <p>Strona fanowska jednego z najlepszych koszykarzy świata</p>
+</header>
+
+<nav>
+    <a href="#glowna">Strona główna</a>
+    <a href="#informacje">Informacje</a>
+    <a href="#kategorie">Kategorie</a>
+</nav>
+
+<div class="container" id="glowna">
+
+    <h2 style="text-align:center; color:#f5a623;">
+        Witaj na stronie o LeBronie Jamesie!
+    </h2>
+
+    <p style="text-align:center;">
+        Znajdziesz tutaj informacje o życiu, karierze,
+        osiągnięciach i historii LeBrona Jamesa.
+    </p>
+
+    <div class="search">
+        <h2>Wyszukaj informacje</h2>
+
+        <input type="text" id="searchInput"
+        placeholder="Wpisz np. kariera, osiągnięcia...">
+
+        <button onclick="searchInfo()">Szukaj</button>
+        <p id="message"></p>
+    </div>
+
+    <h2 id="kategorie" style="text-align:center; color:#f5a623;">
+        Wybierz kategorię
+    </h2>
+
+    <div class="categories">
+        <button onclick="showInfo('biografia')">Biografia</button>
+        <button onclick="showInfo('dziecinstwo')">Dzieciństwo</button>
+        <button onclick="showInfo('kariera')">Kariera NBA</button>
+        <button onclick="showInfo('osiagniecia')">Osiągnięcia</button>
+        <button onclick="showInfo('styl')">Styl gry</button>
+        <button onclick="showInfo('zycie')">Życie prywatne</button>
+    </div>
+
+    <div class="content" id="informacje">
+        <h2>LeBron James - informacje</h2>
+        <p>
+            LeBron James urodził się 30 grudnia 1984 roku
+            w Akron w stanie Ohio w USA.
+            Jest znanym amerykańskim koszykarzem.
+            Gra na pozycji niskiego lub silnego skrzydłowego.
+        </p>
+        <p>
+            Wybierz jedną z kategorii powyżej,
+            aby dowiedzieć się więcej.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>Strona fanowska o LeBronie Jamesie</p>
+    <p>Projekt szkolny - HTML i CSS</p>
+</footer>
+
+<script>
+
+const data = {
+
+biografia: {
+title: "Biografia LeBrona Jamesa",
+text: `
+<p>LeBron Raymone James urodził się 30 grudnia
+1984 roku w Akron w stanie Ohio w USA.</p>
+<ul>
+<li>Wzrost: 206 cm</li>
+<li>Dyscyplina: koszykówka</li>
+<li>Pozycja: niski skrzydłowy / silny skrzydłowy</li>
+<li>Numery na koszulce: 23 i 6</li>
+<li>Drużyna: Los Angeles Lakers</li>
+</ul>`
+},
+
+dziecinstwo: {
+title: "Dzieciństwo i początki kariery",
+text: `
+<p>LeBron od najmłodszych lat interesował się
+koszykówką i wyróżniał się talentem sportowym.</p>
+<p>Grał w szkolnej drużynie St. Vincent–St. Mary
+High School. W 2003 roku rozpoczął profesjonalną
+karierę w Cleveland Cavaliers.</p>`
+},
+
+kariera: {
+title: "Kariera w NBA",
+text: `
+<ul>
+<li><b>Cleveland Cavaliers:</b> rozpoczął tam karierę
+w 2003 roku. Zdobył mistrzostwo NBA w 2016 roku.</li>
+<li><b>Miami Heat:</b> grał w latach 2010–2014.
+Zdobył dwa mistrzostwa NBA.</li>
+<li><b>Los Angeles Lakers:</b> dołączył w 2018 roku.
+Zdobył mistrzostwo NBA w 2020 roku.</li>
+</ul>`
+},
+
+osiagniecia: {
+title: "Największe osiągnięcia",
+text: `
+<ul>
+<li>4 tytuły mistrza NBA.</li>
+<li>4 nagrody MVP finałów NBA.</li>
+<li>4 nagrody MVP sezonu zasadniczego NBA.</li>
+<li>Złote medale olimpijskie w 2008, 2012 i 2024 roku.</li>
+<li>Najwięcej punktów w historii sezonów zasadniczych NBA.</li>
+</ul>`
+},
+
+styl: {
+title: "Styl gry",
+text: `
+<p>LeBron James potrafi grać na wielu pozycjach.
+Wyróżnia się siłą fizyczną, szybkością i świetną techniką.</p>
+<ul>
+<li>Celne rzuty do kosza.</li>
+<li>Efektowne wsady.</li>
+<li>Dokładne podania.</li>
+<li>Dobra obrona.</li>
+<li>Szybkie podejmowanie decyzji.</li>
+<li>Współpraca z drużyną.</li>
+</ul>`
+},
+
+zycie: {
+title: "Życie prywatne",
+text: `
+<p>LeBron James jest mężem Savannah James
+i ojcem trójki dzieci.</p>
+<p>Poza koszykówką zajmuje się działalnością
+charytatywną oraz biznesem.</p>`
+}
+
+};
+
+function showInfo(category) {
+    const item = data[category];
+
+    document.getElementById("informacje").innerHTML =
+        "<h2>" + item.title + "</h2>" + item.text;
+
+    document.getElementById("message").innerText = "";
+
+    document.getElementById("informacje").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function searchInfo() {
+    const query = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    const results = Object.entries(data).filter(([key, item]) =>
+        (key + " " + item.title + " " + item.text)
+        .toLowerCase().includes(query)
+    );
+
+    if (query === "") {
+        document.getElementById("message").innerText =
+            "Wpisz, czego szukasz!";
+        return;
+    }
+
+    if (results.length > 0) {
+        const item = results[0][1];
+
+        document.getElementById("informacje").innerHTML =
+            "<h2>" + item.title + "</h2>" + item.text;
+
+        document.getElementById("message").innerText =
+            "Znaleziono informacje!";
+
+        document.getElementById("informacje").scrollIntoView({
+            behavior: "smooth"
+        });
+    } else {
+        document.getElementById("message").innerText =
+            "Nie znaleziono informacji. Spróbuj innego hasła.";
+    }
+}
+
+document.getElementById("searchInput")
+.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchInfo();
+    }
+});
+
+</script>
+
+</body>
+</html>
